@@ -10,7 +10,12 @@ class UsersController < ApplicationController
     input_username = params.fetch("path_username")
     @the_user = User.find_by(:username => input_username)
     # Can also use .where
-    # @the_user = User.where({ :username => input_username })
-    render( :template => "user_templates/show")
+    # @the_user = User.where({ :username => input_username }).first
+
+    if @the_user == nil
+      redirect_to("/404")
+    else
+      render( :template => "user_templates/show")
+    end
   end
 end
