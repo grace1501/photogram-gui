@@ -21,7 +21,7 @@
   </dd>
 </dl>
 
-<h2>Own photos (5)</h2>
+<h2>Own photos (<%= @the_user.own_photos.count %>)</h2>
 
 <table border="1">
   <tr>
@@ -69,6 +69,6 @@
         </a>
       </td>
     </tr>
-    
+
   <% end %>
 </table>
