@@ -15,4 +15,14 @@ class PhotosController < ApplicationController
       render( :template => "photo_templates/show")
     end
   end
+
+  def destroy
+    the_id = params.fetch("path_id")
+    the_photo = Photo.find_by(:id => the_id)
+    
+    the_photo.destroy
+
+    redirect_to("/photos")
+  end
+
 end
